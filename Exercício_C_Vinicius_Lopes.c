@@ -110,7 +110,8 @@ int main (){
 		printf("Abaixo, escolha o que gostaria de fazer!\n\n");
 		printf("\t1 - Cadastrar Pokémon\n");
 		printf("\t2 - Buscar Informações\n");
-		printf("\t3 - Apagar Registro\n\n");
+		printf("\t3 - Apagar Registro\n");
+		printf("\t4 - Desligar a Vinedex\n\n");
 		printf("Opção: "); //Fim do menu
 		
 		scanf("%d", &escolha); //Armazena escolha do usuário na variável "escolha"
@@ -126,6 +127,10 @@ int main (){
 				break;
 			case 3: //Caso o treinador digite 3
 				deletar();
+				break;
+			case 4: //Caso o treinador digite 4
+				printf("Obrigado por utilizar a Vinedex! :)");
+				return 0;
 				break;
 			default: //Caso o treinador digite qualquer coisa que não seja 1, 2 ou 3.
 				printf("Parece que você escolheu uma opção inválida, tente 1, 2 ou 3.\n\n");
