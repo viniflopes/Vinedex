@@ -98,44 +98,57 @@ int deletar(){
 int main (){
 	int escolha = 0; //Define variável de escolha do Treinador Pokemon
 	int repetidor = 1; //Variável para lógica do loop
+	char autenticador[10] = "a"; //Variável para criação de lógica de autenticação
 	
-	for (repetidor=1;repetidor=1;){ //Loop para sempre retornar ao menu
-		
-		system("cls"); //Limpa o console
+	setlocale (LC_ALL, "Portuguese"); //Define linguagem para Português
 	
-		setlocale (LC_ALL, "Portuguese"); //Define linguagem para Português
+	printf("## VINEDEX ##\n\n");
+	printf("## Sistema de cadastro de Pokémons ##\n\n");
+	printf("## Digite sua senha de acesso!\n");
+	scanf("%s", autenticador);
+	
+	if(strcmp(autenticador,"admin") == 0){
+
+	
+		for (repetidor=1;repetidor=1;){ //Loop para sempre retornar ao menu
+			
+			system("cls"); //Limpa o console
 		
-		printf("## VINEDEX ##\n\n");
-		printf("## Sistema de cadastro de Pokémons ##\n\n");
-		printf("Abaixo, escolha o que gostaria de fazer!\n\n");
-		printf("\t1 - Cadastrar Pokémon\n");
-		printf("\t2 - Buscar Informações\n");
-		printf("\t3 - Apagar Registro\n");
-		printf("\t4 - Desligar a Vinedex\n\n");
-		printf("Opção: "); //Fim do menu
-		
-		scanf("%d", &escolha); //Armazena escolha do usuário na variável "escolha"
-		
-		system ("cls"); //Limpa o console
-		
-		switch (escolha){ //Retorno de acordo com o valor atribuído a variável
-			case 1: //Caso o treinador digite 1
-				registrar();
-				break;
-			case 2: //Caso o treinador digite 2
-				consultar();
-				break;
-			case 3: //Caso o treinador digite 3
-				deletar();
-				break;
-			case 4: //Caso o treinador digite 4
-				printf("Obrigado por utilizar a Vinedex! :)");
-				return 0;
-				break;
-			default: //Caso o treinador digite qualquer coisa que não seja 1, 2 ou 3.
-				printf("Parece que você escolheu uma opção inválida, tente 1, 2 ou 3.\n\n");
-				system("pause");
-				break;
+			printf("## VINEDEX ##\n\n");
+			printf("## Sistema de cadastro de Pokémons ##\n\n");
+			printf("Abaixo, escolha o que gostaria de fazer!\n\n");
+			printf("\t1 - Cadastrar Pokémon\n"); //Cadastrar uma informação
+			printf("\t2 - Buscar Informações\n"); //Buscar uma informação
+			printf("\t3 - Apagar Registro\n"); //Deletar uma informação
+			printf("\t4 - Desligar a Vinedex\n\n"); //Finalizar o programa
+			printf("Opção: "); //Espaço para digitar
+			
+			scanf("%d", &escolha); //Armazena escolha do usuário na variável "escolha"
+			
+			system ("cls"); //Limpa o console
+			
+			switch (escolha){ //Retorno de acordo com o valor atribuído a variável
+				case 1: //Caso o treinador digite 1
+					registrar();
+					break;
+				case 2: //Caso o treinador digite 2
+					consultar();
+					break;
+				case 3: //Caso o treinador digite 3
+					deletar();
+					break;
+				case 4: //Caso o treinador digite 4
+					printf("\nObrigado por utilizar a Vinedex! :)\n");
+					return 0;
+					break;
+				default: //Caso o treinador digite qualquer coisa que não seja 1, 2 ou 3.
+					printf("Parece que você escolheu uma opção inválida, tente 1, 2 ou 3.\n\n");
+					system("pause");
+					break;
+			}
 		}
-	}
+	} else {
+		system ("cls");
+		printf("\n\nVocê digitou a senha errada, tente novamente!\n\n");
+	} 
 }
